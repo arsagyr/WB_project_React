@@ -19,6 +19,7 @@ func runServer() {
 	defer handlers.DB.Close()
 	http.HandleFunc("/api/create", handlers.CreateActor)
 	http.HandleFunc("/api/table", handlers.GetActors)
+	http.HandleFunc("/api/table/", handlers.DeleteActorHandler)
 	http.HandleFunc("/api/search", handlers.SearchActors)
 	http.ListenAndServe("localhost:8080", nil)
 }

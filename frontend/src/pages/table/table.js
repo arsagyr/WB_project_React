@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import './table.css';
+import  './table.css';
 
 const ActorsTable = () => {
   const [actors, setActors] = useState([]);
@@ -25,14 +25,40 @@ const ActorsTable = () => {
     fetchData();
   }, []);
 
+
+    const handleDeleteActor = async (id) => {
+      if (!window.confirm('Вы уверены, что хотите удалить этого актера?')) {
+        return;
+      }
+  
+      try {
+        const response = await fetch(`http://localhost:8080/api/table/${id}`, {
+          method: 'DELETE',
+        });
+  
+        if (!response.ok) {
+          throw new Error('Ошибка при удалении');
+        }
+  
+        // Обновляем список после удаления
+        setActors(actors.filter(actor => actor.id !== id));
+        alert('Актер успешно удален');
+        } catch (error) {
+        console.error('Ошибка удаления:', error);
+        alert('Не удалось удалить актера: ' + error.message);
+      }
+    };
+
+
+
   if (loading) return <div>Загрузка...</div>;
   if (error) return <div>Ошибка: {error}</div>;
 
   return (
-    <div className="table-container">
-      <h2>Список актёров</h2>
+      
       <table class="actorstable">
         <thead>
+          <h2>Список актёров</h2>
           <tr>
             <th>ID</th>
             <th>Фамилия</th>
@@ -51,11 +77,12 @@ const ActorsTable = () => {
               <td>{actor.nation}</td>
               <td>{actor.number}</td>
               <td>{actor.honorar}</td>
+              <td><button onClick={() => handleDeleteActor(actor.id)} className="delete-button">Удалить</button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
-    </div>
   );
 };
 
