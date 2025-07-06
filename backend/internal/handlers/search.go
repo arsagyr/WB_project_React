@@ -10,7 +10,7 @@ import (
 
 func SearchActors(w http.ResponseWriter, r *http.Request) {
 	familyname := (r.URL.Query().Get("familyname"))
-	givenname := (r.URL.Query().Get("givenyname"))
+	givenname := (r.URL.Query().Get("givenname"))
 	nation := (r.URL.Query().Get("nation"))
 
 	familyname = "%" + familyname + "%"
@@ -23,7 +23,7 @@ func SearchActors(w http.ResponseWriter, r *http.Request) {
 		SELECT Actors.id, Names.Family, Names.Given, Nations.Name, Number, Honorar FROM Actors 
 		JOIN Names ON Actors.Nameid=Names.id
 		JOIN Nations ON Actors.Nationid=Nations.id
-		WHERE (((Names.Family  LIKE $1) AND (Names.Given LIKE $2)) AND (Nations.name LIKE $3))
+		WHERE ((Names.Family  LIKE $1) AND (Names.Given LIKE $2) AND (Nations.name LIKE $3))
 		`,
 		familyname, givenname, nation)
 

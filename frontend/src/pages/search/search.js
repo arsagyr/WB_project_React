@@ -9,7 +9,7 @@ function SearchActor() {
   const [error, setError] = useState(null);
 
   const searchActors = async () => {
-    if (!familyname && !givenname && !nation) {
+    if ((!familyname && !givenname) && !nation) {
       setActors([]);
       return;
     }
@@ -72,14 +72,14 @@ function SearchActor() {
         {actors.length > 0 ? (
           <table>
             <thead>
-              <tr>
+              
                 <th>ID</th>
-                <th>Имя</th>
                 <th>Фамилия</th>
+                <th>Имя</th>
                 <th>Национальность</th>
                 <th>Число фильмов</th>
                 <th>Гонорар ($)</th>
-              </tr>
+              
             </thead>
             <tbody>
               {actors.map((actor) => (
@@ -95,7 +95,7 @@ function SearchActor() {
             </tbody>
           </table>
         ) : (
-          !loading && !error && (familyname || givenname || nation) && (
+          !loading && !error && ((familyname || givenname) || nation) && (
             <div >Актеры не найдены</div>
           )
         )}

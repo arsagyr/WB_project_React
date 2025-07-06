@@ -1,15 +1,16 @@
 .container {
+  width: auto;
   border-radius: 16px;
   margin: 20px;
   background-color: plum;
   padding: 8px;
-  font-family: Arial, sans-serif;
 }
 
 .actorstable {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
+  font-family: Courier New;
 }
 
 .deleteButton {
@@ -18,6 +19,20 @@
 
 body {
   background-color: white;
+}
+
+h2 {
+  font-family: 1.5em  Georgia , sans-serif;
+}
+p {
+  font-family: 1em Arial;
+}
+
+thead{
+  background-color: orchid;
+  border: 1px solid purple;
+  padding: 8px;
+  text-align: left;
 }
 
 th, td {

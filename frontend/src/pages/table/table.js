@@ -56,10 +56,9 @@ const ActorsTable = () => {
 
   return (
       <div class='container'>
+      <h2 >Список актёров</h2>
       <table class='actorstable'>
         <thead>
-          <h2 >Список актёров</h2>
-          <tr>
             <th>ID</th>
             <th>Фамилия</th>
             <th>Имя</th>
@@ -67,7 +66,6 @@ const ActorsTable = () => {
             <th>Число фильмов</th>
             <th>Гонорар (в млн. $)</th>
             <th></th>
-          </tr>
         </thead>
         <tbody>
           {actors.map((actor) => (

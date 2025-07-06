@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 
 function CreateActor() {
@@ -54,10 +54,10 @@ function CreateActor() {
   };
 
   return (
-    <div>
+    <div class='container'>
         <form onSubmit={handleSubmit}>
-            <table class='container'>
-           <thead><h2>Создать актёра</h2></thead>
+        <h2>Создать актёра</h2>
+            <table > 
                 <tr>
                     <td><label>Фамилия</label></td>
                     <td><input 
