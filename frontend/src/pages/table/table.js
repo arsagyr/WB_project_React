@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import  './table.css';
+import './table.css';
 
 const ActorsTable = () => {
   const [actors, setActors] = useState([]);
@@ -55,10 +55,10 @@ const ActorsTable = () => {
   if (error) return <div>Ошибка: {error}</div>;
 
   return (
-      
-      <table class="actorstable">
+      <div class='container'>
+      <table class='actorstable'>
         <thead>
-          <h2>Список актёров</h2>
+          <h2 >Список актёров</h2>
           <tr>
             <th>ID</th>
             <th>Фамилия</th>
@@ -66,6 +66,7 @@ const ActorsTable = () => {
             <th>Национальность</th>
             <th>Число фильмов</th>
             <th>Гонорар (в млн. $)</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -77,12 +78,13 @@ const ActorsTable = () => {
               <td>{actor.nation}</td>
               <td>{actor.number}</td>
               <td>{actor.honorar}</td>
-              <td><button onClick={() => handleDeleteActor(actor.id)} className="delete-button">Удалить</button>
+              <td><button onClick={() => handleDeleteActor(actor.id)} class='deleteButton'>Удалить</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      </div>
   );
 };
 

@@ -55,9 +55,9 @@ function CreateActor() {
 
   return (
     <div>
-      <h3>Добавить актёра</h3>
         <form onSubmit={handleSubmit}>
-            <table>
+            <table class='container'>
+           <thead><h2>Создать актёра</h2></thead>
                 <tr>
                     <td><label>Фамилия</label></td>
                     <td><input 

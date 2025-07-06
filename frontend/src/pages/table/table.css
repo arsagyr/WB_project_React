@@ -1,5 +1,8 @@
-.table-container {
+.container {
+  border-radius: 16px;
   margin: 20px;
+  background-color: plum;
+  padding: 8px;
   font-family: Arial, sans-serif;
 }
 
@@ -9,22 +12,28 @@
   margin-top: 10px;
 }
 
+.deleteButton {
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: white;
+}
+
 th, td {
-  border: 1px solid #ddd;
+  border: 1px solid purple;
   padding: 8px;
   text-align: left;
 }
 
-th {
-  background-color: #f2f2f2;
-  position: sticky;
-  top: 0;
+tr:nth-child(even) {
+  background-color: orchid;
 }
 
-tr:nth-child(even) {
-  background-color: #f9f9f9;
+tr:nth-child(odd) {
+  background-color: pink;
 }
 
 tr:hover {
-  background-color: #f1f1f1;
+  background-color: orangered;
 }
