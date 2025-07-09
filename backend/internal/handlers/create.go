@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
 	"react/backend/internal/model"
@@ -28,9 +27,6 @@ func CreateActor(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
-
-	fmt.Println(newActor.Familyname)
-	fmt.Println(newActor.Givenname)
 
 	_, err = DB.Exec(`
 		INSERT INTO Names (Family, Given)

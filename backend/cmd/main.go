@@ -11,7 +11,7 @@ import (
 )
 
 func runServer() {
-	db, err := sql.Open("postgres", "user=postgres password=password dbname=testactors sslmode=disable")
+	db, err := sql.Open("postgres", "user=postgres password=password dbname=actorsdb sslmode=disable")
 	if err != nil {
 		log.Println(err)
 	}
